@@ -1,0 +1,64 @@
+.Services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CardsBlock {
+    margin: 50px 0;
+    padding: 15px;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 50px;
+    
+}
+
+.CardBlock {
+    width: 22vw;
+    height: 600px;
+    margin: 15px 0;
+    /* border: 1px solid black; */
+    box-shadow: 0px 0px 7px 2px rgba(34, 60, 80, 0.2);
+    border-radius: 8px;
+}
+
+.CardBlock > img {
+    overflow: hidden;
+    width: 100%;
+    height: px;
+    border-radius: 8px;
+}
+
+.CardBlock > h3 {
+    text-align: center;
+    
+}
+
+.CardBlock > h4 {
+    padding: 0 25px;
+    font-weight: 400;
+}
+
+.CardBlock > button {
+    margin: auto;
+}
+
+.SignUp {
+    display: flex;
+    justify-content: center;
+}
+
+.SignUp > button {
+    background-color: #ffae00;
+    height: 40px;
+    width: 200px;
+    min-width: 200px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}

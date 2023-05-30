@@ -1,0 +1,144 @@
+.Home {
+    width: 80%;
+    margin: auto;
+    /* background-color: aqua; */
+}
+
+.ImageBlock {
+    width: 100%;
+    height: 750px;
+    margin: 50px 0 50px 0;
+    
+}
+
+.ImageBlock > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+
+.MainInfoBlocks {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 300px;
+    margin: 50px 0 50px 0;
+    justify-content: space-between;
+}
+
+.MainInfoBlock {
+    width: 32%;
+    height: 100%;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.MainInfoBlock > h1, .MainInfoBlock > h3{
+    padding: 0 20px;
+}
+
+.Team {
+    background-color: #f8f9fa;
+    padding: 15px 75px;
+    border-radius: 8px;
+}
+
+.TrainerButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.TrainerButton > button {
+    background-color: #ffae00;
+    margin: 25px;
+    height: 40px;
+    width: 200px;
+    min-width: 200px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.Trainers {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Trainer {
+    height: 90%;
+    /* width: 23%; */
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Trainer > h4 {
+    margin-top: 1px;
+}
+
+.LifeStyle {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    /* height: 450px; */
+    margin: 50px 0;
+    padding: 40px 40px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.LifeStyle_left {
+    width: 70%;
+}
+
+.LifeStyle_left > h5 {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: 30px;
+}
+
+.LifeStyle_left > h1 {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-size: 40px;
+}
+
+.LifeStyle_right {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Abonement_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Abonement_info > button {
+    background-color: #ffae00;
+    margin: 25px;
+    height: 40px;
+    width: 200px;
+    min-width: 200px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
