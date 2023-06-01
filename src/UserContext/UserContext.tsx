@@ -4,6 +4,7 @@ import { createContext } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { dataChange } from '../store/slices/UserSlice';
+import Router from 'next/router';
 
 
 const initialState: UserProfile = {
@@ -54,14 +55,22 @@ function UserContextProvider({children}: UserContextProviderProps) {
                 login: login,
                 password: password 
             }).then((data) => {
-                if(data.data.length !== 0) {
+                console.log('user server data  -> ', data.data[0]);
+                if(data.data[0] !== undefined) {
+                    console.log(data.data[0]);
                     dispatch(dataChange(data.data[0]));
-                    setUser(data.data[0]);
+                    setUser(data.data);
                     console.log('data -> ', data.data[0]);
                     localStorage.setItem('email',  data.data[0].email)
                     localStorage.setItem('id',  data.data[0].userID)
                     localStorage.setItem('password',  data.data[0].password)
                     localStorage.setItem('login',  data.data[0].login)
+                    setTimeout(() => {
+                        Router.push('/Profile');
+                    }, 1500)
+                }
+                else {
+                    alert('Проверьте правильность ввода данных!')
                 }
             })
         }

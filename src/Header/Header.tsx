@@ -4,6 +4,10 @@ import styles from './Header.module.css';
 import Router from 'next/router';
 import { useSelector } from 'react-redux';
 import { UserContext } from '../UserContext/UserContext';
+import Image from 'next/image';
+
+
+import Logo from '../../assets/logo.png';
 
 const Header: FC = () => {
 
@@ -23,6 +27,7 @@ const Header: FC = () => {
     return(
         <div className={styles.Header}>
             <div className={styles.leftSide}>
+                <Image src={Logo} alt='' style={{width: "100px", height: "85px"}}/>
                 <h1><a href="/">СПОРTavr</a></h1>
             </div>
             <div className={styles.rightSide}>
@@ -32,7 +37,12 @@ const Header: FC = () => {
                 <a href="/Services">Услуги</a>
                 {
                     data.user.login !== null && data.user.password  !== null ? 
-                    (<button onClick={() => leaveApp()}>Выйти</button>) :
+                    (
+                        <>
+                            <a href="/Profile">Профиль</a>
+                            <button onClick={() => leaveApp()}>Выйти</button>
+                        </>
+                    ) :
                     (<button onClick={() => PushToMenu()}>Авторизоваться</button>)
                 }
                 

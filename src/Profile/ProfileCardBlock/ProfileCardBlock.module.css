@@ -1,6 +1,6 @@
 .ProfileCardBlock {
     width: 90%;
-    height: 250px;
+    height: 320px;
     background-color: #f8f9fa;
     min-width: 300px;
     border-radius: 8px;
@@ -9,4 +9,19 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 25px;
+}
+
+
+.CancelButton {
+    background-color: #ffae00;
+    height: 40px;
+    width: 200px;
+    min-width: 200px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }

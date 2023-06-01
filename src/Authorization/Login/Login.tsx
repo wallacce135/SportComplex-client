@@ -3,7 +3,7 @@ import styles from './Login.module.css';
 import { UserContext } from '../../UserContext/UserContext';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-
+import Router from 'next/router';
 
 const Login: FC = () => {
 
@@ -14,14 +14,12 @@ const Login: FC = () => {
 
     const context = useContext(UserContext);
 
-    const { push } = useRouter()
 
     const Authorization = async (event: any) =>  {
 
         context.Authorize(login, password);
-        push('/Profile');
-        
 
+        
     //    event.preventDefault();
 
     }

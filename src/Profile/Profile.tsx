@@ -8,7 +8,6 @@ const Profile: FC = () => {
 
     const [serverData, setServerData] = useState<any>();    
 
-    
 
     useEffect(() => {
         if(localStorage.getItem('email') === 'undefined' || localStorage.getItem('password') === 'undefined') {
@@ -30,7 +29,7 @@ const Profile: FC = () => {
             </div>
             <div className={styles.ProfileCardsBlock}>
                 {serverData  && serverData.map((item: any) => (
-                    <ProfileCardBlock Price={item.Price} login={item.login} serviceName={item.serviceName} />
+                    <ProfileCardBlock Price={item.Price} login={item.login} serviceName={item.serviceName} serviceId={item.serviceID} userId={item.userID} />
                 ))}
 
 
