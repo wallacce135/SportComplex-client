@@ -1,68 +1,42 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import styles from './Services.module.css';
 import Image from 'next/image';
 
 import chess from '../../assets/Services/chess.png';
+import CardBlock from './Cardblock/Cardblock';
+import axios from 'axios';
+
+const Services = () => {
 
 
-const Services: FC = () => {
+    const [services, setServices] = useState<any>(null);
+
+    useEffect(() => {
+
+        axios.get('http://localhost:4040/services').then((data) => {
+            setServices(data.data);
+        })
+
+    }, [])
+
+
+    console.log('services -> ', services);
+
+
     return (
         <div className={styles.Services}>
             <div className={styles.CardsBlock}>
 
-                <div className={styles.CardBlock}>
-                    <Image src={chess} alt=''/>
-                    <h3>Свободное катание</h3>
-                    <h4>Свободное катание - возможность парить, как птица</h4>
-                    <div className={styles.SignUp}>
-                        <button>Записаться</button>
-                    </div>
-                </div>
-
-                <div className={styles.CardBlock}>
-                    <Image src={chess} alt=''/>
-                    <h3>Свободное катание</h3>
-                    <h4>Свободное катание - возможность парить, как птица</h4>
-                    <div className={styles.SignUp}>
-                        <button>Записаться</button>
-                    </div>
-                </div>
-
-                <div className={styles.CardBlock}>
-                    <Image src={chess} alt=''/>
-                    <h3>Свободное катание</h3>
-                    <h4>Свободное катание - возможность парить, как птица</h4>
-                    <div className={styles.SignUp}>
-                        <button>Записаться</button>
-                    </div>
-                </div>
-
-                <div className={styles.CardBlock}>
-                    <Image src={chess} alt=''/>
-                    <h3>Свободное катание</h3>
-                    <h4>Свободное катание - возможность парить, как птица</h4>
-                    <div className={styles.SignUp}>
-                        <button>Записаться</button>
-                    </div>
-                </div>
-
-                <div className={styles.CardBlock}>
-                    <Image src={chess} alt=''/>
-                    <h3>Свободное катание</h3>
-                    <h4>Свободное катание - возможность парить, как птица</h4>
-                    <div className={styles.SignUp}>
-                        <button>Записаться</button>
-                    </div>
-                </div>
-
-                <div className={styles.CardBlock}>
-                    <Image src={chess} alt=''/>
-                    <h3>Свободное катание</h3>
-                    <h4>Свободное катание - возможность парить, как птица</h4>
-                    <div className={styles.SignUp}>
-                        <button>Записаться</button>
-                    </div>
-                </div>
+                {
+                    services && services.map((item: any) => (
+                        <CardBlock 
+                            Price={item.Price} 
+                            description={item.description} 
+                            serviceID={item.serviceID}
+                            serviceName={item.serviceName} 
+                        />
+                    ))
+                }
 
             </div>
         </div>

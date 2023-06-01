@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { UserProfile } from './user-profile';
-import { KeyedObject } from './auth';
-import jwtDecode from 'jwt-decode';
-import { createContext } from 'vm';
-
+import { createContext } from 'react';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { dataChange } from '../store/slices/UserSlice';
 
 
 const initialState: UserProfile = {
@@ -14,7 +14,7 @@ const initialState: UserProfile = {
     password: null,
     secondName: null,
     Authorize: () => {},
-    logout: () => {},
+    Logout: () => {},
     SignUp: () => {}
 }
 
@@ -32,12 +32,74 @@ function UserContextProvider({children}: UserContextProviderProps) {
 
     const [user, setUser] = useState<UserProfile>(initialState)
 
+    const dispatch = useDispatch()
+    const data = useSelector((state: any) => state.user);
 
 
     useEffect(() => {
-        if(user) {
-            
+        if(
+            localStorage.getItem('user') !== 'undefined' &&
+            localStorage.getItem('id') !== 'undefined' &&
+            localStorage.getItem('password') !== 'undefined' &&
+            localStorage.getItem('email') !== 'undefined'
+        ) {
+            dispatch(dataChange({id: localStorage.getItem('id'), login: localStorage.getItem('login'), email: localStorage.getItem('email'), password: localStorage.getItem('password')}))
         }
-    })
+    }, [])
+
+    const Authorize = async (login: string, password: string) => {
+
+        if(login !== '' && password !== '') {
+            await axios.post('http://localhost:4040/Login', {
+                login: login,
+                password: password 
+            }).then((data) => {
+                if(data.data.length !== 0) {
+                    dispatch(dataChange(data.data[0]));
+                    setUser(data.data[0]);
+                    console.log('data -> ', data.data[0]);
+                    localStorage.setItem('email',  data.data[0].email)
+                    localStorage.setItem('id',  data.data[0].userID)
+                    localStorage.setItem('password',  data.data[0].password)
+                    localStorage.setItem('login',  data.data[0].login)
+                }
+            })
+        }
+    }
+
+    const Logout = () => {
+        dispatch(dataChange({id: null, login: null, email: null, password: null}));
+        setUser(initialState);
+        localStorage.removeItem('email');
+        localStorage.removeItem('password');
+        localStorage.removeItem('login');
+        localStorage.removeItem('id');
+    }
+
+    const SignUp = (login: string, email: string, password: string) => {
+        if(login && email && password) {
+            // axios.post('http://localhost:4040/Register').then((data) => {
+
+            // })
+
+            sessionStorage.setItem('login', login)
+            sessionStorage.setItem('password', password)
+            sessionStorage.setItem('email', email)
+        }
+    }
+
+
+    return(
+        <UserContext.Provider value={{
+            ...user,
+            Authorize,
+            SignUp,
+            Logout
+        }}>
+            {children}
+        </UserContext.Provider>
+    )
 
 }
+
+export {UserContextProvider, UserContext}

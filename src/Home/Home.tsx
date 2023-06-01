@@ -90,9 +90,9 @@ const Home: FC = () =>  {
 
             </div>
 
-            <div className={styles.ImageBlock}>
+            {/* <div className={styles.ImageBlock}>
                 <Image src={skates} alt='' />
-            </div>
+            </div> */}
 
         </div>
     )

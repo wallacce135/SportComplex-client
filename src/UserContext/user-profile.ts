@@ -6,7 +6,7 @@ export type UserProfile = {
     secondName?: string | null;
     password?: string | null;
 
-    Authorize: (email: string, password: string) => void;
+    Authorize: (login: string, password: string) => void;
     SignUp: (email: string, password: string, login: string, firstName?: string, secondName?: string) => void;
-    logout: () => void;
+    Logout: () => void;
 }

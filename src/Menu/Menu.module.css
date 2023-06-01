@@ -1,0 +1,29 @@
+.MenuBlock {
+    height: 792px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonBlock {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonBlock > button {
+    margin: 50px;
+    background-color: #ffae00;
+    height: 80px;
+    width: 350px;
+    min-width: 200px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}

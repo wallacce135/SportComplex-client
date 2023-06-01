@@ -1,0 +1,22 @@
+.ProfileBlock {
+    height: 791.5px;
+    width: 80%;
+    /* background-color: aqua; */
+    margin: auto;
+}
+
+.ProfileCardsBlock{
+
+    /* width: 80%; */
+    /* background-color: aqua; */
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 25px;
+    padding: 20px;
+}
+
+.Heading {
+    width: 80%;
+    margin: 50px 0;
+}
